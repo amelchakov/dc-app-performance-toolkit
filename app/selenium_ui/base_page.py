@@ -116,6 +116,9 @@ class BasePage:
     def return_to_parent_frame(self):
         return self.driver.switch_to.parent_frame()
 
+    def switch_to(self, selector):
+        return self.driver.switch_to.frame(self.get_element(selector))
+
     def get_selector(self, selector_name):
         selector = selector_name.get(self.app_version) if type(selector_name) == dict else selector_name
         if selector is None:
